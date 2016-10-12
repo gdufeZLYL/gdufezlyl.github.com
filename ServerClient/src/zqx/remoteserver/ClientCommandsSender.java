@@ -12,7 +12,7 @@ import java.net.Socket;
 import javax.swing.JPanel;
 
 /**
- * @author Halim
+ * @author ZLYL
  */
 class ClientCommandsSender implements KeyListener,
         MouseMotionListener,MouseListener {

@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Halim
+ * @author ZLYL
  */
 class ClientHandler extends Thread {
 

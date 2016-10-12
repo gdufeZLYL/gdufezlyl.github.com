@@ -132,7 +132,7 @@ public class Login extends JFrame implements ActionListener{
             clear();
             dispose();
             ServerInitiator si = new ServerInitiator();
-            si.initialize(5000);
+            si.initialize(5000,5001);
         }  
     }
     
