@@ -2,6 +2,8 @@ package zqx.info;
 
 import javax.swing.*;
 
+import zqx.fileupload.FileUpload;
+
 import java.awt.*;  
 import java.awt.event.*;
 import java.io.IOException;
@@ -15,6 +17,7 @@ public class StudentInfo extends JFrame implements ActionListener{
 	JPanel jp1, jp2, jp3, jp4, jp5=null;
 	private String id, username, ip;
 	Socket socket = null;
+	Socket socket2 = null;
 	
 	public static void main(String[] args) {  
         
@@ -28,7 +31,7 @@ public class StudentInfo extends JFrame implements ActionListener{
 		
 //		//设置监听  
 //        jb1.addActionListener(this);  
-//        jb2.addActionListener(this);
+        jb2.addActionListener(this);
 //        jb3.addActionListener(this);
 	    jb4.addActionListener(this);
         
@@ -89,6 +92,7 @@ public class StudentInfo extends JFrame implements ActionListener{
         try {
             System.out.println("Connecting to server ..........");
             socket = new Socket(ip, port);
+            socket2 = new Socket(ip, 5001);
             System.out.println("Connection Established.");
 
             //Get default screen device
@@ -122,6 +126,8 @@ public class StudentInfo extends JFrame implements ActionListener{
 		// TODO Auto-generated method stub
 		if(e.getActionCommand()=="退出系统"){
 			System.exit(0);
+        }else if(e.getActionCommand()=="文件上传"){
+        	new FileUpload(socket2);
         }
 	}
 }

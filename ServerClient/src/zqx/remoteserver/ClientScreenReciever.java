@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
- * @author Halim
+ * @author ZLYL
  * ClientScreenReciever is responsible for recieving client screenshot and displaying
  * it in the server. Each connected client has a separate object of this class
  */

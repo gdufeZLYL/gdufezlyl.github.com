@@ -9,6 +9,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -37,8 +40,9 @@ public class ServerInitiator extends JFrame implements ActionListener{
     public static void main(String args[]){
     	String id = JOptionPane.showInputDialog("请输入教工号");
     	String user = JOptionPane.showInputDialog("请输入姓名");
-    	String port = JOptionPane.showInputDialog("请输入监听端口");
-        new ServerInitiator().initialize(Integer.parseInt(port));
+    	String port = "5000";
+    	String port2 = "5001";
+        new ServerInitiator().initialize(Integer.parseInt(port), Integer.parseInt(port2));
     }
     
     public ServerInitiator(){
@@ -67,18 +71,25 @@ public class ServerInitiator extends JFrame implements ActionListener{
         
     }
 
-    public void initialize(int port){
+    public void initialize(int port,int port2){
 
         try {
             ServerSocket sc = new ServerSocket(port);
+            ServerSocket sc2 = new ServerSocket(port2);
+            //DataInputStream dis;
+            //FileOutputStream fos;
             //Show Server GUI
             //drawGUI();
             //Listen to server port and accept clients connections
             while(true){
                 Socket client = sc.accept();
+                Socket client2 = sc2.accept();
                 System.out.println("New client Connected to the server");
+                                
                 //Per each client create a ClientHandler
                 new ClientHandler(client,desktop);
+                new FileUploadHandler(client2);
+                
             }
         } catch (IOException ex) {
             ex.printStackTrace();
