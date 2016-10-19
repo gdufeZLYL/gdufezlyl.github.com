@@ -22,6 +22,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import zqx.send.ViewFile;
+
 /**
  * This is the entry class of the server
  */
@@ -118,6 +120,9 @@ public class ServerInitiator extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+		if(e.getActionCommand()=="文件上传"){
+        	ViewFile vf= new ViewFile();
+        	vf.setVisible(true);
+        }
 	}
 }
