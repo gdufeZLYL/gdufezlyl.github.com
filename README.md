@@ -1,1 +1,1 @@
-# 远程桌面监控系统
+# 详情请见[wiki](https://github.com/gdufeZLYL/gdufezlyl.github.com/wiki)
